@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Manager</title>
+</head>
+
+<body>
+
+<h1>Simple Task List</h1>
+
+<input type="text" id="itemInput" placeholder="Type an item here">
+<button onclick="addTask()">Add</button>
+<button onclick="deleteLast()">Delete Last</button>
+
+<ul id="list"></ul>
+
+<script>
+
+function addTask() {
+
+    let inputBox = document.getElementById("itemInput");
+    let text = inputBox.value;
+
+    if(text.trim() !== "") {
+
+        let newItem = document.createElement("li");
+        newItem.innerText = text;
+
+        document.getElementById("list").appendChild(newItem);
+
+        inputBox.value = "";
+    }
+}
+
+function deleteLast() {
+
+    let taskList = document.getElementById("list");
+
+    if(taskList.lastChild) {
+        taskList.removeChild(taskList.lastChild);
+    }
+}
+
+</script>
+
+</body>
+</html>
